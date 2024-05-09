@@ -7,3 +7,5 @@ Step 3: yarn add lucide-react
 Step 4:npx shadcn-ui@latest add button
 
 Step 5:npm i @kinde-oss/kinde-auth-nextjs using Kinde for authentication
+
+Step 6: npm install framer-motion for animation to landing page
