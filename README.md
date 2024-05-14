@@ -38,3 +38,9 @@ Step 17: npm i react-rnd A resizable and draggable component for React.
 Step 18: npm install @headlessui/react
 
 Step 19: npm i @tanstack/react-query Hooks for fetching, caching and updating asynchronous data in React
+
+Configuration Preview 3rd Step
+
+Step 20: npm i react-dom-confetti For cleberation design
+
+Button Loading state ...
