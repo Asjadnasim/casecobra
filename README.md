@@ -44,3 +44,7 @@ Configuration Preview 3rd Step
 Step 20: npm i react-dom-confetti For cleberation design
 
 Button Loading state ...
+
+Integrating secure payments
+
+Step 21: npm i stripe for payments
