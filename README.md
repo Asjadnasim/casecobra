@@ -48,3 +48,7 @@ Button Loading state ...
 Integrating secure payments
 
 Step 21: npm i stripe for payments
+
+Checking User login or not for payment
+
+Step 22: npx shadcn-ui@latest add dialog

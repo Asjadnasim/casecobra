@@ -2,19 +2,17 @@
 
 import { BASE_PRICE, PRODUCT_PRICES } from '@/config/products';
 import { db } from '@/db';
+import { stripe } from '@/lib/stripe';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { Order } from '@prisma/client';
-import { stripe } from '@/lib/stripe';
 
-export const createCheckOutSession = async ({
+export const createCheckoutSession = async ({
 	configId,
 }: {
 	configId: string;
 }) => {
 	const configuration = await db.configuration.findUnique({
-		where: {
-			id: configId,
-		},
+		where: { id: configId },
 	});
 
 	if (!configuration) {
@@ -46,8 +44,6 @@ export const createCheckOutSession = async ({
 
 	console.log(user.id, configuration.id);
 
-	console.log('Existing Order: ', existingOrder);
-
 	if (existingOrder) {
 		order = existingOrder;
 	} else {
@@ -59,8 +55,6 @@ export const createCheckOutSession = async ({
 			},
 		});
 	}
-	console.log('Existing Order2: ', existingOrder);
-	console.log('Existing Order3: ', order);
 
 	const product = await stripe.products.create({
 		name: 'Custom iPhone Case',
@@ -71,16 +65,12 @@ export const createCheckOutSession = async ({
 		},
 	});
 
-	console.log('Product: ', product);
-
 	const stripeSession = await stripe.checkout.sessions.create({
 		success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
 		cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/configure/preview?id=${configuration.id}`,
 		payment_method_types: ['card'],
 		mode: 'payment',
-		shipping_address_collection: {
-			allowed_countries: ['DE', 'US'],
-		},
+		shipping_address_collection: { allowed_countries: ['DE', 'US'] },
 		metadata: {
 			userId: user.id,
 			orderId: order.id,
