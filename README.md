@@ -58,3 +58,12 @@ Creating Secret Admin Dashboard
 Step 23: npx shadcn-ui@latest add card
 
 Step 24: npx shadcn-ui@latest add table
+
+Writing Our ThankYou Email
+
+Step 25: npm install @react-email/components for email
+
+The next generation of writing emails
+A collection of high-quality, unstyled components for creating beautiful emails using React and TypeScript.
+
+Step 26: npm i resend
