@@ -52,3 +52,9 @@ Step 21: npm i stripe for payments
 Checking User login or not for payment
 
 Step 22: npx shadcn-ui@latest add dialog
+
+Creating Secret Admin Dashboard
+
+Step 23: npx shadcn-ui@latest add card
+
+Step 24: npx shadcn-ui@latest add table
